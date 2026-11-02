@@ -19,7 +19,7 @@ The 12 V motor (stall torque 0.30 N m, no-load speed 240 rad/s) drives a load of
 
 1. ______________________________  (hint: Load as a fraction of stall: 0.12 / 0.30 = 0.4....)
 2. ______________________________  (hint: Speed = 240 x (1 - 0.4) = 144 rad/s....)
-3. ______________________________  (hint: rpm = 144 x 60 / (2 pi) = 1375 rpm (to 4 digits, 1375.1)....)
+3. ______________________________  (hint: rpm = 144 x 60 / (2 pi) = 1375.1, so about 1375 rpm....)
 4. ______________________________  (hint: Power = torque x speed = 0.12 x 144 = 17.28 W....)
 5. ______________________________  (hint: Sanity check: the speed is between 0 and 240 rad/s, and the load is be...)
 

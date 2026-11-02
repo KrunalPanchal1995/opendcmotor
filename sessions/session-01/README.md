@@ -48,18 +48,18 @@ $$ \mathrm{rpm}=\omega\,\frac{60}{2\pi} $$
 $$ P=T_{\mathrm{load}}\,\omega $$
 
 ## C. Visual explanation
-The first figure shows the 12 V torque-speed line from 0.30 N m at rest down to zero at 240 rad/s, with three loads drawn as dotted horizontal lines and the operating points where they meet the line. The second figure plots speed against load for 6, 9 and 12 V: three parallel-looking lines that fall as the load grows and shift up with voltage. Reading either picture: a heavier load means a slower motor, and a motor never runs faster than its no-load speed.
-
-![Speed against load for 6, 9 and 12 V: heavier load, slower motor; more volts, faster motor.](../../docs/figures/s01_speed_vs_load.png)
-
-*Speed against load for 6, 9 and 12 V: heavier load, slower motor; more volts, faster motor.*
+The first figure shows the 12 V torque-speed line from 0.30 N m at rest down to zero at 240 rad/s, with three loads drawn as dotted horizontal lines and the operating points where they meet the line. The second figure plots speed against load for 6, 9 and 12 V: three parallel lines (each has the same slope, -800 rad/s per N m, because the stall torque and the no-load speed scale together) that fall as the load grows and shift up with voltage. Reading either picture: a heavier load means a slower motor, and a motor never runs faster than its no-load speed.
 
 ![The 12 V torque-speed line with the operating points for three loads.](../../docs/figures/s01_torque_speed_line.png)
 
 *The 12 V torque-speed line with the operating points for three loads.*
 
+![Speed against load for 6, 9 and 12 V: heavier load, slower motor; more volts, faster motor.](../../docs/figures/s01_speed_vs_load.png)
+
+*Speed against load for 6, 9 and 12 V: heavier load, slower motor; more volts, faster motor.*
+
 ## D. Interactive simulation
-Run the lesson (`python start.py 1`), then open the live app: [Session 1: load and speed](https://krunalpanchal1995.github.io/opendcmotor/session-01/) (or `app.html` in this folder). Slide the load and watch the needle and the red point on the line, then change the voltage and see the line move. Try a load larger than the stall torque.
+Run the lesson (`python start.py 1`), then open the live app: [Session 1: load and speed](https://krunalpanchal1995.github.io/opendcmotor/session-01/) (or `app.html` in this folder). Slide the load and watch the speed needle on the dial and the red operating point on the torque-speed line, then change the voltage and see the line move. Try a load larger than the stall torque.
 
 **Challenge.** Make the shaft turn at 1000 rpm or more while carrying a load of at least 0.15 N m.
 
@@ -68,7 +68,7 @@ Run the lesson (`python start.py 1`), then open the live app: [Session 1: load a
 
 1. Load as a fraction of stall: 0.12 / 0.30 = 0.4.
 2. Speed = 240 x (1 - 0.4) = 144 rad/s.
-3. rpm = 144 x 60 / (2 pi) = 1375 rpm (to 4 digits, 1375.1).
+3. rpm = 144 x 60 / (2 pi) = 1375.1, so about 1375 rpm.
 4. Power = torque x speed = 0.12 x 144 = 17.28 W.
 5. Sanity check: the speed is between 0 and 240 rad/s, and the load is below the stall torque, so the motor turns.
 
@@ -134,7 +134,7 @@ At voltage V the line has stall torque 0.025 V and no-load speed 20 V. Solve spe
 <details>
 <summary>Step-by-step solution</summary>
 
-At 12 V the speed is 240 x (1 - 0.15 / 0.30) = 120 rad/s = 1146 rpm, which is above 1000 rpm, so yes. The speed at voltage V is 20 V - 120, so 20 V - 120 >= 104.7 gives V >= 11.24; in 0.5 V steps the lowest voltage is 11.5 V. Trade-off: the motor then runs close to its limits; a motor with a bigger stall torque would run cooler.
+At 12 V the speed is 240 x (1 - 0.15 / 0.30) = 120 rad/s = 1146 rpm, which is above 1000 rpm, so yes. At voltage V the speed is 20 V x (1 - 0.15 / (0.025 V)) = 20 V - 120 rad/s, so 20 V - 120 >= 104.7 gives V >= 11.24; in 0.5 V steps the lowest voltage is 11.5 V. Trade-off: the motor then runs close to its limits; a motor with a bigger stall torque would run cooler.
 
 </details>
 

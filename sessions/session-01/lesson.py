@@ -26,9 +26,9 @@ W_NOLOAD = 240.0      # rad/s : speed with nothing to turn
 
 # %% [markdown]
 # ## Step 1: two numbers describe the motor
-# *Torque* (N m) is the twisting effort of the shaft. *Speed* is measured in rad/s (radians per
-# second); one turn is 2 pi radians, so rpm = rad/s * 60 / (2 pi).
-# A brushed DC motor has a nice property: its torque falls on a **straight line** from the
+# *Torque* (N m) is the twisting effort of the shaft. *Speed* is how fast it turns, in rad/s (radians
+# per second) or rpm (turns per minute); one turn is 2 pi radians, so rpm = rad/s * 60 / (2 pi).
+# A brushed DC motor has a useful property: its torque falls on a **straight line** from the
 # **stall torque** (shaft held, speed 0) to the **no-load speed** (nothing to turn, torque 0).
 
 # %%
@@ -50,7 +50,8 @@ def torque_at_speed(w, t_stall=T_STALL, w_noload=W_NOLOAD):
 # %% [markdown]
 # ## Step 2: the operating point
 # When the motor drives a steady load torque, it settles where the load meets the line. Solve
-# `load = t_stall * (1 - w / w_noload)` for w. A load above the stall torque cannot be turned.
+# `load = t_stall * (1 - w / w_noload)` for w, which gives `w = w_noload * (1 - load / t_stall)`.
+# A load at or above the stall torque cannot be turned, so the speed is 0 (never negative).
 
 # %%
 def speed_at_load(load, t_stall=T_STALL, w_noload=W_NOLOAD):
@@ -68,7 +69,7 @@ def mech_power(load, t_stall=T_STALL, w_noload=W_NOLOAD):
 # %% [markdown]
 # ## Step 3: the supply voltage
 # More volts, more speed and more torque. In Session 2 we derive why; for now take it as a rule:
-# both numbers grow in proportion to the voltage (the table values are for 12 V).
+# both numbers grow in proportion to the voltage (T_STALL and W_NOLOAD above are the 12 V values).
 
 # %%
 def motor_at_voltage(volts):
